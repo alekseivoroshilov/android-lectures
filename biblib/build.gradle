@@ -1,3 +1,7 @@
+plugins {
+    id 'java'
+}
+
 apply plugin: 'java'
 
 repositories {
@@ -13,4 +17,16 @@ jar {
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
+}
+group 'biblib'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
 }
